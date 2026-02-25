@@ -4,7 +4,7 @@
  * SMARTPAYROLL - Dashboard Comptable
  * ============================================================================
  * 
- * Tableau de bord du comptable avec gestion des bulletins de paie
+ * Tableau de bord du comptable avec statistiques et gestion des bulletins
  * 
  * @author [Ton nom] - Étudiante BTS Génie Logiciel
  * @establishment Institut Supérieur Mony Keng (ISMK)
@@ -14,16 +14,25 @@
  * ============================================================================
  */
 
-// Vérifier l'authentification et les permissions
+
+// Vérifier l'authentification
 require_once __DIR__ . '/../../core/Session.php';
 \App\Core\Session::start();
 \App\Core\Session::requireRole(['admin', 'comptable']);
 
+// Récupérer les données du dashboard (passées par le contrôleur)
+// $stats, $bulletinsEnAttente, $recentActivity
+
 // Définir BASE_URL
 $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
 $host = $_SERVER['HTTP_HOST'];
-$scriptDir = dirname($_SERVER['SCRIPT_NAME']);
-$baseUrl = rtrim($protocol . '://' . $host . $scriptDir, '/');
+$scriptName = $_SERVER['SCRIPT_NAME'];
+$projectPath = preg_replace('#^(/[^/]+).*#', '$1', $scriptName);
+$baseUrl = $protocol . '://' . $host . $projectPath;
+
+// Messages d'erreur/succès
+$error = $_GET['error'] ?? null;
+$success = $_GET['success'] ?? null;
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -39,7 +48,9 @@ $baseUrl = rtrim($protocol . '://' . $host . $scriptDir, '/');
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* VARIABLES CSS - Identiques au dashboard Admin */
+        /* ============================================================================
+           VARIABLES CSS - Identiques à ton thème SmartPayroll
+           ============================================================================ */
         :root {
             --primary: #2563eb;
             --primary-dark: #1d4ed8;
@@ -63,8 +74,12 @@ $baseUrl = rtrim($protocol . '://' . $host . $scriptDir, '/');
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             --radius: 8px;
             --radius-lg: 12px;
+            --radius-xl: 16px;
         }
 
+        /* ============================================================================
+           RESET & BASE
+           ============================================================================ */
         * {
             margin: 0;
             padding: 0;
@@ -72,18 +87,29 @@ $baseUrl = rtrim($protocol . '://' . $host . $scriptDir, '/');
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: var(--dark);
             background-color: #f1f5f9;
         }
 
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        /* ============================================================================
+           LAYOUT
+           ============================================================================ */
         .dashboard {
             display: flex;
             min-height: 100vh;
         }
 
-        /* SIDEBAR */
+        /* ============================================================================
+           SIDEBAR
+           ============================================================================ */
         .sidebar {
             width: 260px;
             background: white;
@@ -111,7 +137,7 @@ $baseUrl = rtrim($protocol . '://' . $host . $scriptDir, '/');
             width: 40px;
             height: 40px;
             background: var(--primary);
-            border-radius: 8px;
+            border-radius: var(--radius);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -192,12 +218,15 @@ $baseUrl = rtrim($protocol . '://' . $host . $scriptDir, '/');
             font-size: 18px;
         }
 
-        /* MAIN CONTENT */
+        /* ============================================================================
+           MAIN CONTENT
+           ============================================================================ */
         .main-content {
             flex: 1;
             margin-left: 260px;
         }
 
+        /* Header */
         .header {
             background: white;
             box-shadow: var(--shadow);
@@ -257,14 +286,43 @@ $baseUrl = rtrim($protocol . '://' . $host . $scriptDir, '/');
             color: var(--gray);
         }
 
+        /* Container */
         .container {
             padding: 32px;
+        }
+
+        /* Alerts */
+        .alert {
+            padding: 14px 20px;
+            border-radius: var(--radius);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .alert-error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+        }
+
+        .alert-success {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+        }
+
+        .alert i {
+            font-size: 18px;
         }
 
         /* Stats Cards */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 24px;
             margin-bottom: 32px;
         }
@@ -345,13 +403,19 @@ $baseUrl = rtrim($protocol . '://' . $host . $scriptDir, '/');
             color: var(--danger);
         }
 
-        /* Bulletins Table */
+        /* Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
         .dashboard-card {
             background: white;
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow);
             padding: 24px;
-            margin-bottom: 24px;
         }
 
         .dashboard-card-header {
@@ -367,36 +431,17 @@ $baseUrl = rtrim($protocol . '://' . $host . $scriptDir, '/');
             color: var(--dark);
         }
 
-        .btn {
-            padding: 10px 20px;
-            border-radius: var(--radius);
+        .dashboard-card-header a {
+            color: var(--primary);
+            font-size: 14px;
             font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            border: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
         }
 
-        .btn-primary {
-            background: var(--primary);
-            color: white;
+        .dashboard-card-header a:hover {
+            text-decoration: underline;
         }
 
-        .btn-primary:hover {
-            background: var(--primary-dark);
-        }
-
-        .btn-success {
-            background: var(--success);
-            color: white;
-        }
-
-        .btn-success:hover {
-            background: #0da271;
-        }
-
+        /* Bulletins Table */
         .table {
             width: 100%;
             border-collapse: collapse;
@@ -433,8 +478,8 @@ $baseUrl = rtrim($protocol . '://' . $host . $scriptDir, '/');
         }
 
         .badge-brouillon {
-            background: #e0e7ff;
-            color: var(--primary);
+            background: #fee2e2;
+            color: var(--danger);
         }
 
         .badge-valide {
@@ -447,11 +492,6 @@ $baseUrl = rtrim($protocol . '://' . $host . $scriptDir, '/');
             color: var(--primary);
         }
 
-        .badge-annule {
-            background: #fee2e2;
-            color: var(--danger);
-        }
-
         .action-btn {
             padding: 6px 12px;
             border-radius: var(--radius);
@@ -461,6 +501,8 @@ $baseUrl = rtrim($protocol . '://' . $host . $scriptDir, '/');
             transition: var(--transition);
             border: none;
             margin-right: 6px;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .action-btn-view {
@@ -473,23 +515,13 @@ $baseUrl = rtrim($protocol . '://' . $host . $scriptDir, '/');
             color: white;
         }
 
-        .action-btn-generate {
+        .action-btn-validate {
             background: #dcfce7;
             color: var(--success);
         }
 
-        .action-btn-generate:hover {
-            background: var(--success);
-            color: white;
-        }
-
-        .action-btn-validate {
-            background: var(--primary-light);
-            color: var(--primary);
-        }
-
         .action-btn-validate:hover {
-            background: var(--primary);
+            background: var(--success);
             color: white;
         }
 
@@ -501,6 +533,134 @@ $baseUrl = rtrim($protocol . '://' . $host . $scriptDir, '/');
         .action-btn-pay:hover {
             background: var(--primary);
             color: white;
+        }
+
+        .action-btn-pdf {
+            background: #f3e8ff;
+            color: #7e22ce;
+        }
+
+        .action-btn-pdf:hover {
+            background: #7e22ce;
+            color: white;
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .quick-action-btn {
+            padding: 16px;
+            border-radius: var(--radius);
+            background: white;
+            border: 2px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .quick-action-btn:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .quick-action-btn i {
+            font-size: 24px;
+            color: var(--primary);
+        }
+
+        .quick-action-btn span {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        /* Recent Activity */
+        .activity-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .activity-item {
+            display: flex;
+            gap: 12px;
+            padding: 12px;
+            border-radius: var(--radius);
+            background: var(--light);
+            transition: var(--transition);
+        }
+
+        .activity-item:hover {
+            background: #e2e8f0;
+        }
+
+        .activity-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .activity-icon.create {
+            background: #dcfce7;
+            color: var(--success);
+        }
+
+        .activity-icon.update {
+            background: #dbeafe;
+            color: var(--primary);
+        }
+
+        .activity-icon.delete {
+            background: #fee2e2;
+            color: var(--danger);
+        }
+
+        .activity-content h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .activity-content p {
+            font-size: 13px;
+            color: var(--gray);
+        }
+
+        .activity-time {
+            font-size: 12px;
+            color: var(--gray);
+            margin-top: 4px;
+        }
+
+        /* ============================================================================
+           RESPONSIVE DESIGN
+           ============================================================================ */
+        @media (max-width: 1024px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                width: 220px;
+            }
+            
+            .main-content {
+                margin-left: 220px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -519,6 +679,16 @@ $baseUrl = rtrim($protocol . '://' . $host . $scriptDir, '/');
             }
             
             .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+            
+            .dashboard-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -593,7 +763,7 @@ $baseUrl = rtrim($protocol . '://' . $host . $scriptDir, '/');
                             <div class="header-user-role">Comptable</div>
                         </div>
                     </div>
-                    <a href="<?= $baseUrl ?>/../app/controllers/AuthController.php?action=logout" 
+                    <a href="<?= $baseUrl ?>/app/controllers/AuthController.php?action=logout" 
                        style="background: var(--danger); color: white; padding: 8px 16px; border-radius: var(--radius); font-weight: 600;">
                         <i class="fas fa-sign-out-alt"></i> Déconnexion
                     </a>
@@ -602,8 +772,43 @@ $baseUrl = rtrim($protocol . '://' . $host . $scriptDir, '/');
 
             <!-- Container -->
             <div class="container">
+                <!-- Messages d'erreur/succès -->
+                <?php if ($error): ?>
+                    <div class="alert alert-error">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <?php
+                        $messages = [
+                            'bulletin_invalide' => 'Bulletin invalide.',
+                            'statut_invalide' => 'Statut du bulletin invalide.',
+                            'erreur_validation' => 'Erreur lors de la validation du bulletin.',
+                            'erreur_paiement' => 'Erreur lors du paiement.',
+                            'non_vacataire' => 'Cet employé n\'est pas un vacataire.',
+                            'bulletin_existe' => 'Un bulletin existe déjà pour ce mois/année.',
+                            'champs_vides' => 'Veuillez remplir tous les champs obligatoires.'
+                        ];
+                        echo htmlspecialchars($messages[$error] ?? 'Une erreur est survenue.');
+                        ?>
+                    </div>
+                <?php endif; ?>
+
+                <?php if ($success): ?>
+                    <div class="alert alert-success">
+                        <i class="fas fa-check-circle"></i>
+                        <?php
+                        $messages = [
+                            'bulletin_genere' => 'Bulletin généré avec succès.',
+                            'bulletin_vacataire_genere' => 'Bulletin vacataire généré avec succès.',
+                            'bulletin_valide' => 'Bulletin validé avec succès.',
+                            'bulletin_paye' => 'Bulletin marqué comme payé.',
+                            'bulletin_pdf_genere' => 'PDF du bulletin généré.'
+                        ];
+                        echo htmlspecialchars($messages[$success] ?? 'Opération réussie.');
+                        ?>
+                    </div>
+                <?php endif; ?>
+
                 <!-- Welcome Message -->
-                <div style="background: linear-gradient(135deg, #047857, #065f46); color: white; padding: 24px; border-radius: var(--radius-lg); margin-bottom: 32px;">
+                <div style="background: linear-gradient(135deg, var(--secondary), #065f46); color: white; padding: 24px; border-radius: var(--radius-lg); margin-bottom: 32px;">
                     <h2 style="font-size: 28px; margin-bottom: 8px;">💰 Bonjour, <?= htmlspecialchars($_SESSION['user_prenom']) ?> !</h2>
                     <p style="font-size: 16px; opacity: 0.9;">Gérez efficacement la paie mensuelle du personnel de l'ISMK.</p>
                 </div>
@@ -616,7 +821,7 @@ $baseUrl = rtrim($protocol . '://' . $host . $scriptDir, '/');
                         </div>
                         <div class="stat-info">
                             <h3>Bulletins Brouillon</h3>
-                            <p>12</p>
+                            <p><?= $stats['bulletins_brouillon'] ?? 0 ?></p>
                             <div class="stat-trend">
                                 <span>À valider</span>
                             </div>
@@ -629,7 +834,7 @@ $baseUrl = rtrim($protocol . '://' . $host . $scriptDir, '/');
                         </div>
                         <div class="stat-info">
                             <h3>Bulletins Validés</h3>
-                            <p>28</p>
+                            <p><?= $stats['bulletins_valides'] ?? 0 ?></p>
                             <div class="stat-trend positive">
                                 <i class="fas fa-arrow-up"></i>
                                 <span>+5 ce mois</span>
@@ -643,7 +848,7 @@ $baseUrl = rtrim($protocol . '://' . $host . $scriptDir, '/');
                         </div>
                         <div class="stat-info">
                             <h3>Total à Payer</h3>
-                            <p style="font-size: 22px;">12 450 000 Ar</p>
+                            <p style="font-size: 22px;"><?= number_format($stats['total_a_payer'] ?? 0, 0, ',', ' ') ?> Ar</p>
                             <div class="stat-trend">
                                 <span>Mois en cours</span>
                             </div>
@@ -652,129 +857,127 @@ $baseUrl = rtrim($protocol . '://' . $host . $scriptDir, '/');
 
                     <div class="stat-card">
                         <div class="stat-icon danger">
-                            <i class="fas fa-times-circle"></i>
+                            <i class="fas fa-users"></i>
                         </div>
                         <div class="stat-info">
-                            <h3>Bulletins Annulés</h3>
-                            <p>2</p>
-                            <div class="stat-trend negative">
-                                <i class="fas fa-arrow-down"></i>
-                                <span>-1 vs mois dernier</span>
+                            <h3>Vacataires Ce Mois</h3>
+                            <p><?= $stats['vacataires_ce_mois'] ?? 0 ?></p>
+                            <div class="stat-trend">
+                                <span>Heures à saisir</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Bulletins en Attente -->
-                <div class="dashboard-card">
-                    <div class="dashboard-card-header">
-                        <h2><i class="fas fa-clock"></i> Bulletins en Attente de Validation</h2>
-                        <button class="btn btn-primary" onclick="window.location.href='#'">
-                            <i class="fas fa-plus"></i> Générer Nouveau Bulletin
-                        </button>
+                <!-- Dashboard Grid -->
+                <div class="dashboard-grid">
+                    <!-- Bulletins en Attente -->
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-header">
+                            <h2><i class="fas fa-clock"></i> Bulletins en Attente de Validation</h2>
+                            <a href="<?= $baseUrl ?>/app/controllers/ComptableController.php?action=listBulletins">
+                                <i class="fas fa-list"></i> Voir tout
+                            </a>
+                        </div>
+                        
+                        <?php if (!empty($bulletinsEnAttente)): ?>
+                            <div style="overflow-x: auto;">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Employé</th>
+                                            <th>Matricule</th>
+                                            <th>Mois/Année</th>
+                                            <th>Salaire Net</th>
+                                            <th>Statut</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($bulletinsEnAttente as $bulletin): ?>
+                                        <tr>
+                                            <td><?= htmlspecialchars($bulletin['prenom'] . ' ' . $bulletin['nom']) ?></td>
+                                            <td><?= htmlspecialchars($bulletin['matricule']) ?></td>
+                                            <td><?= $bulletin['mois'] ?>/<?= $bulletin['annee'] ?></td>
+                                            <td><strong><?= number_format($bulletin['salaire_net'], 0, ',', ' ') ?> Ar</strong></td>
+                                            <td><span class="badge badge-brouillon">Brouillon</span></td>
+                                            <td>
+                                                <a href="<?= $baseUrl ?>/app/controllers/ComptableController.php?action=validerBulletin&id=<?= $bulletin['id_bulletin'] ?>" 
+                                                   class="action-btn action-btn-validate" 
+                                                   onclick="return confirm('Valider ce bulletin ?')">
+                                                    <i class="fas fa-check"></i> Valider
+                                                </a>
+                                                <a href="<?= $baseUrl ?>/app/controllers/ComptableController.php?action=genererPDF&id=<?= $bulletin['id_bulletin'] ?>" 
+                                                   class="action-btn action-btn-pdf">
+                                                    <i class="fas fa-file-pdf"></i> PDF
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <?php else: ?>
+                            <p style="text-align: center; color: var(--gray); padding: 40px 0;">
+                                <i class="fas fa-check-circle" style="font-size: 48px; color: var(--success); margin-bottom: 16px;"></i><br>
+                                <strong>Aucun bulletin en attente de validation</strong><br>
+                                <span style="font-size: 14px;">Tous les bulletins sont à jour</span>
+                            </p>
+                        <?php endif; ?>
                     </div>
-                    
-                    <div style="overflow-x: auto;">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Employé</th>
-                                    <th>Matricule</th>
-                                    <th>Mois/Année</th>
-                                    <th>Salaire Net</th>
-                                    <th>Statut</th>
-                                    <th>Date Création</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Claire Rakotomalala</td>
-                                    <td>EMP005</td>
-                                    <td>Décembre 2024</td>
-                                    <td>485 000 Ar</td>
-                                    <td><span class="badge badge-brouillon">Brouillon</span></td>
-                                    <td>15/12/2024</td>
-                                    <td>
-                                        <button class="action-btn action-btn-view">
-                                            <i class="fas fa-eye"></i> Voir
-                                        </button>
-                                        <button class="action-btn action-btn-validate">
-                                            <i class="fas fa-check"></i> Valider
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Paul Tiana</td>
-                                    <td>EMP004</td>
-                                    <td>Décembre 2024</td>
-                                    <td>512 000 Ar</td>
-                                    <td><span class="badge badge-brouillon">Brouillon</span></td>
-                                    <td>15/12/2024</td>
-                                    <td>
-                                        <button class="action-btn action-btn-view">
-                                            <i class="fas fa-eye"></i> Voir
-                                        </button>
-                                        <button class="action-btn action-btn-validate">
-                                            <i class="fas fa-check"></i> Valider
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Marie Andry</td>
-                                    <td>EMP003</td>
-                                    <td>Décembre 2024</td>
-                                    <td>750 000 Ar</td>
-                                    <td><span class="badge badge-brouillon">Brouillon</span></td>
-                                    <td>14/12/2024</td>
-                                    <td>
-                                        <button class="action-btn action-btn-view">
-                                            <i class="fas fa-eye"></i> Voir
-                                        </button>
-                                        <button class="action-btn action-btn-validate">
-                                            <i class="fas fa-check"></i> Valider
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Tiana Razafy (Vacataire)</td>
-                                    <td>VAC001</td>
-                                    <td>Décembre 2024</td>
-                                    <td>810 000 Ar</td>
-                                    <td><span class="badge badge-brouillon">Brouillon</span></td>
-                                    <td>16/12/2024</td>
-                                    <td>
-                                        <button class="action-btn action-btn-view">
-                                            <i class="fas fa-eye"></i> Voir
-                                        </button>
-                                        <button class="action-btn action-btn-validate">
-                                            <i class="fas fa-check"></i> Valider
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
 
-                <!-- Quick Actions -->
-                <div class="dashboard-card">
-                    <div class="dashboard-card-header">
-                        <h2><i class="fas fa-bolt"></i> Actions Rapides</h2>
-                    </div>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px;">
-                        <button class="btn btn-primary" style="width: 100%;" onclick="window.location.href='#'">
-                            <i class="fas fa-calculator"></i> Calcul Paie
-                        </button>
-                        <button class="btn btn-success" style="width: 100%;" onclick="window.location.href='#'">
-                            <i class="fas fa-clock"></i> Saisie Heures
-                        </button>
-                        <button class="btn btn-primary" style="width: 100%;" onclick="window.location.href='#'">
-                            <i class="fas fa-file-pdf"></i> Générer PDF
-                        </button>
-                        <button class="btn" style="width: 100%; background: #fef3c7; color: #92400e;" onclick="window.location.href='#'">
-                            <i class="fas fa-chart-bar"></i> Rapports
-                        </button>
+                    <!-- Actions Rapides & Activité Récente -->
+                    <div style="display: flex; flex-direction: column; gap: 24px;">
+                        <!-- Actions Rapides -->
+                        <div class="dashboard-card">
+                            <div class="dashboard-card-header">
+                                <h2><i class="fas fa-bolt"></i> Actions Rapides</h2>
+                            </div>
+                            <div class="quick-actions">
+                                <a href="<?= $baseUrl ?>/app/controllers/ComptableController.php?action=showGenererBulletin" class="quick-action-btn">
+                                    <i class="fas fa-calculator"></i>
+                                    <span>Générer Bulletin</span>
+                                </a>
+                                <a href="<?= $baseUrl ?>/app/controllers/ComptableController.php?action=showSaisieHeures" class="quick-action-btn">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Saisie Heures</span>
+                                </a>
+                                <a href="<?= $baseUrl ?>/app/controllers/ComptableController.php?action=listBulletins" class="quick-action-btn">
+                                    <i class="fas fa-list"></i>
+                                    <span>Liste Bulletins</span>
+                                </a>
+                                <a href="<?= $baseUrl ?>/app/controllers/ComptableController.php?action=rapports" class="quick-action-btn">
+                                    <i class="fas fa-chart-bar"></i>
+                                    <span>Rapports</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Activité Récente -->
+                        <div class="dashboard-card">
+                            <div class="dashboard-card-header">
+                                <h2><i class="fas fa-history"></i> Activité Récente</h2>
+                            </div>
+                            <div class="activity-list">
+                                <?php foreach ($recentActivity as $activity): ?>
+                                <div class="activity-item">
+                                    <div class="activity-icon <?= $activity['type'] ?>">
+                                        <?php if ($activity['type'] === 'bulletin'): ?>
+                                            <i class="fas fa-file-invoice"></i>
+                                        <?php elseif ($activity['type'] === 'validation'): ?>
+                                            <i class="fas fa-check-circle"></i>
+                                        <?php else: ?>
+                                            <i class="fas fa-umbrella-beach"></i>
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="activity-content">
+                                        <h4><?= htmlspecialchars($activity['description']) ?></h4>
+                                        <div class="activity-time"><?= htmlspecialchars($activity['date']) ?></div>
+                                    </div>
+                                </div>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
