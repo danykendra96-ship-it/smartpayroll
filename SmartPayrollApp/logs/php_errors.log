@@ -1,0 +1,431 @@
+[14-Feb-2026 17:43:44 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 33
+[14-Feb-2026 17:43:44 UTC] PHP Stack trace:
+[14-Feb-2026 17:43:44 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:43:44 UTC] PHP   2. ini_set($varname = 'session.cookie_httponly', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:33
+[14-Feb-2026 17:43:44 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 34
+[14-Feb-2026 17:43:44 UTC] PHP Stack trace:
+[14-Feb-2026 17:43:44 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:43:44 UTC] PHP   2. ini_set($varname = 'session.use_only_cookies', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:34
+[14-Feb-2026 17:43:44 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 35
+[14-Feb-2026 17:43:44 UTC] PHP Stack trace:
+[14-Feb-2026 17:43:44 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:43:44 UTC] PHP   2. ini_set($varname = 'session.cookie_secure', $newvalue = 0) C:\wamp64\www\SmartPayrollApp\index.php:35
+[14-Feb-2026 17:43:44 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 36
+[14-Feb-2026 17:43:44 UTC] PHP Stack trace:
+[14-Feb-2026 17:43:44 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:43:44 UTC] PHP   2. ini_set($varname = 'session.use_strict_mode', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:36
+[14-Feb-2026 17:43:44 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in C:\wamp64\www\SmartPayrollApp\index.php on line 38
+[14-Feb-2026 17:43:44 UTC] PHP Stack trace:
+[14-Feb-2026 17:43:44 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:43:44 UTC] PHP   2. session_start() C:\wamp64\www\SmartPayrollApp\index.php:38
+[14-Feb-2026 17:43:44 UTC] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in C:\wamp64\www\SmartPayrollApp\index.php on line 42
+[14-Feb-2026 17:43:44 UTC] PHP Stack trace:
+[14-Feb-2026 17:43:44 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:43:44 UTC] PHP   2. session_regenerate_id($delete_old_session = TRUE) C:\wamp64\www\SmartPayrollApp\index.php:42
+[14-Feb-2026 20:43:44 Indian/Antananarivo] [VISIT] Visiteur anonyme - IP: ::1
+[14-Feb-2026 17:45:46 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 49
+[14-Feb-2026 17:45:46 UTC] PHP Stack trace:
+[14-Feb-2026 17:45:46 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:45:46 UTC] PHP   2. ini_set($varname = 'session.cookie_httponly', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:49
+[14-Feb-2026 17:45:46 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 50
+[14-Feb-2026 17:45:46 UTC] PHP Stack trace:
+[14-Feb-2026 17:45:46 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:45:46 UTC] PHP   2. ini_set($varname = 'session.use_only_cookies', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:50
+[14-Feb-2026 17:45:46 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 51
+[14-Feb-2026 17:45:46 UTC] PHP Stack trace:
+[14-Feb-2026 17:45:46 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:45:46 UTC] PHP   2. ini_set($varname = 'session.cookie_secure', $newvalue = 0) C:\wamp64\www\SmartPayrollApp\index.php:51
+[14-Feb-2026 17:45:46 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 52
+[14-Feb-2026 17:45:46 UTC] PHP Stack trace:
+[14-Feb-2026 17:45:46 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:45:46 UTC] PHP   2. ini_set($varname = 'session.use_strict_mode', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:52
+[14-Feb-2026 17:45:46 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in C:\wamp64\www\SmartPayrollApp\index.php on line 54
+[14-Feb-2026 17:45:46 UTC] PHP Stack trace:
+[14-Feb-2026 17:45:46 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:45:46 UTC] PHP   2. session_start() C:\wamp64\www\SmartPayrollApp\index.php:54
+[14-Feb-2026 17:45:46 UTC] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in C:\wamp64\www\SmartPayrollApp\index.php on line 58
+[14-Feb-2026 17:45:46 UTC] PHP Stack trace:
+[14-Feb-2026 17:45:46 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:45:46 UTC] PHP   2. session_regenerate_id($delete_old_session = TRUE) C:\wamp64\www\SmartPayrollApp\index.php:58
+[14-Feb-2026 20:45:46 Indian/Antananarivo] [VISIT] Visiteur anonyme - IP: ::1
+[14-Feb-2026 17:46:28 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 33
+[14-Feb-2026 17:46:28 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:28 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:28 UTC] PHP   2. ini_set($varname = 'session.cookie_httponly', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:33
+[14-Feb-2026 17:46:28 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 34
+[14-Feb-2026 17:46:28 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:28 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:28 UTC] PHP   2. ini_set($varname = 'session.use_only_cookies', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:34
+[14-Feb-2026 17:46:28 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 35
+[14-Feb-2026 17:46:28 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:28 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:28 UTC] PHP   2. ini_set($varname = 'session.cookie_secure', $newvalue = 0) C:\wamp64\www\SmartPayrollApp\index.php:35
+[14-Feb-2026 17:46:28 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 36
+[14-Feb-2026 17:46:28 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:28 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:28 UTC] PHP   2. ini_set($varname = 'session.use_strict_mode', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:36
+[14-Feb-2026 17:46:28 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in C:\wamp64\www\SmartPayrollApp\index.php on line 38
+[14-Feb-2026 17:46:28 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:28 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:28 UTC] PHP   2. session_start() C:\wamp64\www\SmartPayrollApp\index.php:38
+[14-Feb-2026 17:46:28 UTC] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in C:\wamp64\www\SmartPayrollApp\index.php on line 42
+[14-Feb-2026 17:46:28 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:28 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:28 UTC] PHP   2. session_regenerate_id($delete_old_session = TRUE) C:\wamp64\www\SmartPayrollApp\index.php:42
+[14-Feb-2026 20:46:28 Indian/Antananarivo] [VISIT] Visiteur anonyme - IP: ::1
+[14-Feb-2026 17:46:29 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 33
+[14-Feb-2026 17:46:29 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:29 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:29 UTC] PHP   2. ini_set($varname = 'session.cookie_httponly', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:33
+[14-Feb-2026 17:46:29 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 34
+[14-Feb-2026 17:46:29 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:29 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:29 UTC] PHP   2. ini_set($varname = 'session.use_only_cookies', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:34
+[14-Feb-2026 17:46:29 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 35
+[14-Feb-2026 17:46:29 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:29 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:29 UTC] PHP   2. ini_set($varname = 'session.cookie_secure', $newvalue = 0) C:\wamp64\www\SmartPayrollApp\index.php:35
+[14-Feb-2026 17:46:29 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 36
+[14-Feb-2026 17:46:29 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:29 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:29 UTC] PHP   2. ini_set($varname = 'session.use_strict_mode', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:36
+[14-Feb-2026 17:46:29 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in C:\wamp64\www\SmartPayrollApp\index.php on line 38
+[14-Feb-2026 17:46:29 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:29 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:29 UTC] PHP   2. session_start() C:\wamp64\www\SmartPayrollApp\index.php:38
+[14-Feb-2026 17:46:29 UTC] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in C:\wamp64\www\SmartPayrollApp\index.php on line 42
+[14-Feb-2026 17:46:29 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:29 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:29 UTC] PHP   2. session_regenerate_id($delete_old_session = TRUE) C:\wamp64\www\SmartPayrollApp\index.php:42
+[14-Feb-2026 20:46:29 Indian/Antananarivo] [VISIT] Visiteur anonyme - IP: ::1
+[14-Feb-2026 17:46:30 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 33
+[14-Feb-2026 17:46:30 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:30 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:30 UTC] PHP   2. ini_set($varname = 'session.cookie_httponly', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:33
+[14-Feb-2026 17:46:30 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 34
+[14-Feb-2026 17:46:30 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:30 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:30 UTC] PHP   2. ini_set($varname = 'session.use_only_cookies', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:34
+[14-Feb-2026 17:46:30 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 35
+[14-Feb-2026 17:46:30 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:30 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:30 UTC] PHP   2. ini_set($varname = 'session.cookie_secure', $newvalue = 0) C:\wamp64\www\SmartPayrollApp\index.php:35
+[14-Feb-2026 17:46:30 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 36
+[14-Feb-2026 17:46:30 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:30 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:30 UTC] PHP   2. ini_set($varname = 'session.use_strict_mode', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:36
+[14-Feb-2026 17:46:30 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in C:\wamp64\www\SmartPayrollApp\index.php on line 38
+[14-Feb-2026 17:46:30 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:30 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:30 UTC] PHP   2. session_start() C:\wamp64\www\SmartPayrollApp\index.php:38
+[14-Feb-2026 17:46:30 UTC] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in C:\wamp64\www\SmartPayrollApp\index.php on line 42
+[14-Feb-2026 17:46:30 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:30 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:30 UTC] PHP   2. session_regenerate_id($delete_old_session = TRUE) C:\wamp64\www\SmartPayrollApp\index.php:42
+[14-Feb-2026 20:46:30 Indian/Antananarivo] [VISIT] Visiteur anonyme - IP: ::1
+[14-Feb-2026 17:46:31 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 33
+[14-Feb-2026 17:46:31 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:31 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:31 UTC] PHP   2. ini_set($varname = 'session.cookie_httponly', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:33
+[14-Feb-2026 17:46:31 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 34
+[14-Feb-2026 17:46:31 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:31 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:31 UTC] PHP   2. ini_set($varname = 'session.use_only_cookies', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:34
+[14-Feb-2026 17:46:31 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 35
+[14-Feb-2026 17:46:31 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:31 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:31 UTC] PHP   2. ini_set($varname = 'session.cookie_secure', $newvalue = 0) C:\wamp64\www\SmartPayrollApp\index.php:35
+[14-Feb-2026 17:46:31 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 36
+[14-Feb-2026 17:46:31 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:31 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:31 UTC] PHP   2. ini_set($varname = 'session.use_strict_mode', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:36
+[14-Feb-2026 17:46:31 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in C:\wamp64\www\SmartPayrollApp\index.php on line 38
+[14-Feb-2026 17:46:31 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:31 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:31 UTC] PHP   2. session_start() C:\wamp64\www\SmartPayrollApp\index.php:38
+[14-Feb-2026 17:46:31 UTC] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in C:\wamp64\www\SmartPayrollApp\index.php on line 42
+[14-Feb-2026 17:46:31 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:31 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:31 UTC] PHP   2. session_regenerate_id($delete_old_session = TRUE) C:\wamp64\www\SmartPayrollApp\index.php:42
+[14-Feb-2026 20:46:31 Indian/Antananarivo] [VISIT] Visiteur anonyme - IP: ::1
+[14-Feb-2026 17:46:32 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 33
+[14-Feb-2026 17:46:32 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:32 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:32 UTC] PHP   2. ini_set($varname = 'session.cookie_httponly', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:33
+[14-Feb-2026 17:46:32 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 34
+[14-Feb-2026 17:46:32 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:32 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:32 UTC] PHP   2. ini_set($varname = 'session.use_only_cookies', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:34
+[14-Feb-2026 17:46:32 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 35
+[14-Feb-2026 17:46:32 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:32 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:32 UTC] PHP   2. ini_set($varname = 'session.cookie_secure', $newvalue = 0) C:\wamp64\www\SmartPayrollApp\index.php:35
+[14-Feb-2026 17:46:32 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 36
+[14-Feb-2026 17:46:32 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:32 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:32 UTC] PHP   2. ini_set($varname = 'session.use_strict_mode', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:36
+[14-Feb-2026 17:46:32 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in C:\wamp64\www\SmartPayrollApp\index.php on line 38
+[14-Feb-2026 17:46:32 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:32 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:32 UTC] PHP   2. session_start() C:\wamp64\www\SmartPayrollApp\index.php:38
+[14-Feb-2026 17:46:32 UTC] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in C:\wamp64\www\SmartPayrollApp\index.php on line 42
+[14-Feb-2026 17:46:32 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:32 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:32 UTC] PHP   2. session_regenerate_id($delete_old_session = TRUE) C:\wamp64\www\SmartPayrollApp\index.php:42
+[14-Feb-2026 20:46:32 Indian/Antananarivo] [VISIT] Visiteur anonyme - IP: ::1
+[14-Feb-2026 17:46:33 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 33
+[14-Feb-2026 17:46:33 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:33 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:33 UTC] PHP   2. ini_set($varname = 'session.cookie_httponly', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:33
+[14-Feb-2026 17:46:33 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 34
+[14-Feb-2026 17:46:33 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:33 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:33 UTC] PHP   2. ini_set($varname = 'session.use_only_cookies', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:34
+[14-Feb-2026 17:46:33 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 35
+[14-Feb-2026 17:46:33 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:33 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:33 UTC] PHP   2. ini_set($varname = 'session.cookie_secure', $newvalue = 0) C:\wamp64\www\SmartPayrollApp\index.php:35
+[14-Feb-2026 17:46:33 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 36
+[14-Feb-2026 17:46:33 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:33 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:33 UTC] PHP   2. ini_set($varname = 'session.use_strict_mode', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:36
+[14-Feb-2026 17:46:33 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in C:\wamp64\www\SmartPayrollApp\index.php on line 38
+[14-Feb-2026 17:46:33 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:33 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:33 UTC] PHP   2. session_start() C:\wamp64\www\SmartPayrollApp\index.php:38
+[14-Feb-2026 17:46:33 UTC] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in C:\wamp64\www\SmartPayrollApp\index.php on line 42
+[14-Feb-2026 17:46:33 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:33 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:33 UTC] PHP   2. session_regenerate_id($delete_old_session = TRUE) C:\wamp64\www\SmartPayrollApp\index.php:42
+[14-Feb-2026 20:46:33 Indian/Antananarivo] [VISIT] Visiteur anonyme - IP: ::1
+[14-Feb-2026 17:46:34 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 33
+[14-Feb-2026 17:46:34 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:34 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:34 UTC] PHP   2. ini_set($varname = 'session.cookie_httponly', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:33
+[14-Feb-2026 17:46:34 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 34
+[14-Feb-2026 17:46:34 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:34 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:34 UTC] PHP   2. ini_set($varname = 'session.use_only_cookies', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:34
+[14-Feb-2026 17:46:34 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 35
+[14-Feb-2026 17:46:34 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:34 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:34 UTC] PHP   2. ini_set($varname = 'session.cookie_secure', $newvalue = 0) C:\wamp64\www\SmartPayrollApp\index.php:35
+[14-Feb-2026 17:46:34 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 36
+[14-Feb-2026 17:46:34 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:34 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:34 UTC] PHP   2. ini_set($varname = 'session.use_strict_mode', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:36
+[14-Feb-2026 17:46:34 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in C:\wamp64\www\SmartPayrollApp\index.php on line 38
+[14-Feb-2026 17:46:34 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:34 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:34 UTC] PHP   2. session_start() C:\wamp64\www\SmartPayrollApp\index.php:38
+[14-Feb-2026 17:46:34 UTC] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in C:\wamp64\www\SmartPayrollApp\index.php on line 42
+[14-Feb-2026 17:46:34 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:34 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:34 UTC] PHP   2. session_regenerate_id($delete_old_session = TRUE) C:\wamp64\www\SmartPayrollApp\index.php:42
+[14-Feb-2026 20:46:34 Indian/Antananarivo] [VISIT] Visiteur anonyme - IP: ::1
+[14-Feb-2026 17:46:34 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 33
+[14-Feb-2026 17:46:34 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:34 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:34 UTC] PHP   2. ini_set($varname = 'session.cookie_httponly', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:33
+[14-Feb-2026 17:46:34 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 34
+[14-Feb-2026 17:46:34 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:34 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:34 UTC] PHP   2. ini_set($varname = 'session.use_only_cookies', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:34
+[14-Feb-2026 17:46:34 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 35
+[14-Feb-2026 17:46:34 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:34 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:34 UTC] PHP   2. ini_set($varname = 'session.cookie_secure', $newvalue = 0) C:\wamp64\www\SmartPayrollApp\index.php:35
+[14-Feb-2026 17:46:34 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 36
+[14-Feb-2026 17:46:34 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:34 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:34 UTC] PHP   2. ini_set($varname = 'session.use_strict_mode', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:36
+[14-Feb-2026 17:46:34 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in C:\wamp64\www\SmartPayrollApp\index.php on line 38
+[14-Feb-2026 17:46:34 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:34 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:34 UTC] PHP   2. session_start() C:\wamp64\www\SmartPayrollApp\index.php:38
+[14-Feb-2026 17:46:34 UTC] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in C:\wamp64\www\SmartPayrollApp\index.php on line 42
+[14-Feb-2026 17:46:34 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:34 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:34 UTC] PHP   2. session_regenerate_id($delete_old_session = TRUE) C:\wamp64\www\SmartPayrollApp\index.php:42
+[14-Feb-2026 20:46:34 Indian/Antananarivo] [VISIT] Visiteur anonyme - IP: ::1
+[14-Feb-2026 17:46:34 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 33
+[14-Feb-2026 17:46:34 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:34 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:34 UTC] PHP   2. ini_set($varname = 'session.cookie_httponly', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:33
+[14-Feb-2026 17:46:34 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 34
+[14-Feb-2026 17:46:34 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:34 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:34 UTC] PHP   2. ini_set($varname = 'session.use_only_cookies', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:34
+[14-Feb-2026 17:46:34 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 35
+[14-Feb-2026 17:46:34 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:34 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:34 UTC] PHP   2. ini_set($varname = 'session.cookie_secure', $newvalue = 0) C:\wamp64\www\SmartPayrollApp\index.php:35
+[14-Feb-2026 17:46:34 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 36
+[14-Feb-2026 17:46:34 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:34 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:34 UTC] PHP   2. ini_set($varname = 'session.use_strict_mode', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:36
+[14-Feb-2026 17:46:34 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in C:\wamp64\www\SmartPayrollApp\index.php on line 38
+[14-Feb-2026 17:46:34 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:34 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:34 UTC] PHP   2. session_start() C:\wamp64\www\SmartPayrollApp\index.php:38
+[14-Feb-2026 17:46:34 UTC] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in C:\wamp64\www\SmartPayrollApp\index.php on line 42
+[14-Feb-2026 17:46:34 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:34 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:34 UTC] PHP   2. session_regenerate_id($delete_old_session = TRUE) C:\wamp64\www\SmartPayrollApp\index.php:42
+[14-Feb-2026 20:46:34 Indian/Antananarivo] [VISIT] Visiteur anonyme - IP: ::1
+[14-Feb-2026 17:46:34 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 33
+[14-Feb-2026 17:46:34 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:34 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:34 UTC] PHP   2. ini_set($varname = 'session.cookie_httponly', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:33
+[14-Feb-2026 17:46:34 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 34
+[14-Feb-2026 17:46:34 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:34 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:34 UTC] PHP   2. ini_set($varname = 'session.use_only_cookies', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:34
+[14-Feb-2026 17:46:34 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 35
+[14-Feb-2026 17:46:34 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:34 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:34 UTC] PHP   2. ini_set($varname = 'session.cookie_secure', $newvalue = 0) C:\wamp64\www\SmartPayrollApp\index.php:35
+[14-Feb-2026 17:46:34 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 36
+[14-Feb-2026 17:46:34 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:34 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:34 UTC] PHP   2. ini_set($varname = 'session.use_strict_mode', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:36
+[14-Feb-2026 17:46:34 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in C:\wamp64\www\SmartPayrollApp\index.php on line 38
+[14-Feb-2026 17:46:34 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:34 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:34 UTC] PHP   2. session_start() C:\wamp64\www\SmartPayrollApp\index.php:38
+[14-Feb-2026 17:46:34 UTC] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in C:\wamp64\www\SmartPayrollApp\index.php on line 42
+[14-Feb-2026 17:46:34 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:34 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:34 UTC] PHP   2. session_regenerate_id($delete_old_session = TRUE) C:\wamp64\www\SmartPayrollApp\index.php:42
+[14-Feb-2026 20:46:34 Indian/Antananarivo] [VISIT] Visiteur anonyme - IP: ::1
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 33
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. ini_set($varname = 'session.cookie_httponly', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:33
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 34
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. ini_set($varname = 'session.use_only_cookies', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:34
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 35
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. ini_set($varname = 'session.cookie_secure', $newvalue = 0) C:\wamp64\www\SmartPayrollApp\index.php:35
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 36
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. ini_set($varname = 'session.use_strict_mode', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:36
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in C:\wamp64\www\SmartPayrollApp\index.php on line 38
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. session_start() C:\wamp64\www\SmartPayrollApp\index.php:38
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in C:\wamp64\www\SmartPayrollApp\index.php on line 42
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. session_regenerate_id($delete_old_session = TRUE) C:\wamp64\www\SmartPayrollApp\index.php:42
+[14-Feb-2026 20:46:35 Indian/Antananarivo] [VISIT] Visiteur anonyme - IP: ::1
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 33
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. ini_set($varname = 'session.cookie_httponly', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:33
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 34
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. ini_set($varname = 'session.use_only_cookies', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:34
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 35
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. ini_set($varname = 'session.cookie_secure', $newvalue = 0) C:\wamp64\www\SmartPayrollApp\index.php:35
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 36
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. ini_set($varname = 'session.use_strict_mode', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:36
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in C:\wamp64\www\SmartPayrollApp\index.php on line 38
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. session_start() C:\wamp64\www\SmartPayrollApp\index.php:38
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in C:\wamp64\www\SmartPayrollApp\index.php on line 42
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. session_regenerate_id($delete_old_session = TRUE) C:\wamp64\www\SmartPayrollApp\index.php:42
+[14-Feb-2026 20:46:35 Indian/Antananarivo] [VISIT] Visiteur anonyme - IP: ::1
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 33
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. ini_set($varname = 'session.cookie_httponly', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:33
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 34
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. ini_set($varname = 'session.use_only_cookies', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:34
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 35
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. ini_set($varname = 'session.cookie_secure', $newvalue = 0) C:\wamp64\www\SmartPayrollApp\index.php:35
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 36
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. ini_set($varname = 'session.use_strict_mode', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:36
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in C:\wamp64\www\SmartPayrollApp\index.php on line 38
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. session_start() C:\wamp64\www\SmartPayrollApp\index.php:38
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in C:\wamp64\www\SmartPayrollApp\index.php on line 42
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. session_regenerate_id($delete_old_session = TRUE) C:\wamp64\www\SmartPayrollApp\index.php:42
+[14-Feb-2026 20:46:35 Indian/Antananarivo] [VISIT] Visiteur anonyme - IP: ::1
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 33
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. ini_set($varname = 'session.cookie_httponly', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:33
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 34
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. ini_set($varname = 'session.use_only_cookies', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:34
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 35
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. ini_set($varname = 'session.cookie_secure', $newvalue = 0) C:\wamp64\www\SmartPayrollApp\index.php:35
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 36
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. ini_set($varname = 'session.use_strict_mode', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:36
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in C:\wamp64\www\SmartPayrollApp\index.php on line 38
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. session_start() C:\wamp64\www\SmartPayrollApp\index.php:38
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in C:\wamp64\www\SmartPayrollApp\index.php on line 42
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. session_regenerate_id($delete_old_session = TRUE) C:\wamp64\www\SmartPayrollApp\index.php:42
+[14-Feb-2026 20:46:35 Indian/Antananarivo] [VISIT] Visiteur anonyme - IP: ::1
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 33
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. ini_set($varname = 'session.cookie_httponly', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:33
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 34
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. ini_set($varname = 'session.use_only_cookies', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:34
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 35
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. ini_set($varname = 'session.cookie_secure', $newvalue = 0) C:\wamp64\www\SmartPayrollApp\index.php:35
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in C:\wamp64\www\SmartPayrollApp\index.php on line 36
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. ini_set($varname = 'session.use_strict_mode', $newvalue = 1) C:\wamp64\www\SmartPayrollApp\index.php:36
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in C:\wamp64\www\SmartPayrollApp\index.php on line 38
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. session_start() C:\wamp64\www\SmartPayrollApp\index.php:38
+[14-Feb-2026 17:46:35 UTC] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in C:\wamp64\www\SmartPayrollApp\index.php on line 42
+[14-Feb-2026 17:46:35 UTC] PHP Stack trace:
+[14-Feb-2026 17:46:35 UTC] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[14-Feb-2026 17:46:35 UTC] PHP   2. session_regenerate_id($delete_old_session = TRUE) C:\wamp64\www\SmartPayrollApp\index.php:42
+[14-Feb-2026 20:46:35 Indian/Antananarivo] [VISIT] Visiteur anonyme - IP: ::1
+[17-Feb-2026 03:23:34 UTC] [index.php] Session démarrée - ID: vote8s8576aaqh5tsqsu4b9jgv
+[17-Feb-2026 06:23:34 Indian/Antananarivo] [ACCESS] Utilisateur connecté - ID: 1, Rôle: admin
+[17-Feb-2026 06:23:34 Indian/Antananarivo] PHP Warning:  Cannot modify header information - headers already sent in C:\wamp64\www\SmartPayrollApp\index.php on line 191
+[17-Feb-2026 06:23:34 Indian/Antananarivo] PHP Stack trace:
+[17-Feb-2026 06:23:34 Indian/Antananarivo] PHP   1. {main}() C:\wamp64\www\SmartPayrollApp\index.php:0
+[17-Feb-2026 06:23:34 Indian/Antananarivo] PHP   2. header($header = 'Location: http://localhost/SmartPayrollApp/app/controllers/AdminController.php?action=dashboard') C:\wamp64\www\SmartPayrollApp\index.php:191
