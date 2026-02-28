@@ -1,37 +1,38 @@
 <?php
 namespace App\Models;
+
 use App\Core\Database;
 
 class Conge {
     public function getByEmploye(int $idEmploye): array {
-        return Database::query("
-            SELECT * FROM conge 
-            WHERE id_employe = :id 
-            ORDER BY date_debut DESC
-        ", ['id' => $idEmploye]);
+        $sql = "SELECT * FROM conge WHERE id_employe = :id_employe ORDER BY date_demande DESC";
+        return Database::query($sql, ['id_employe' => $idEmploye]);
     }
-    public function getByIdAndEmploye(int $idConge, int $idEmploye): ?array {
-        return Database::fetchOne("SELECT * FROM conge WHERE id_conge = :id AND id_employe = :id_employe", ['id' => $idConge, 'id_employe' => $idEmploye]);
-    }
-    public function create(array $data) {
-        $sql = "INSERT INTO conge (id_employe, date_debut, date_fin, nb_jours, type_conge, statut, motif) 
-                VALUES (:id_employe, :date_debut, :date_fin, :nb_jours, :type_conge, 'en_attente', :motif)";
-        $params = [
-            'id_employe' => $data['id_employe'],
-            'date_debut' => $data['date_debut'],
-            'date_fin' => $data['date_fin'],
-            'nb_jours' => (int)($data['nb_jours'] ?? 0),
-            'type_conge' => $data['type_conge'] ?? 'annuel',
-            'motif' => $data['motif'] ?? null
-        ];
-        if (Database::execute($sql, $params) !== false) {
-            return (int) Database::getInstance()->lastInsertId();
+    
+    public function create(array $data): ?int {
+        $sql = "INSERT INTO conge (id_employe, date_demande, date_debut, date_fin, nb_jours, type_conge, statut, motif)
+                VALUES (:id_employe, NOW(), :date_debut, :date_fin, :nb_jours, :type_conge, 'en_attente', :motif)";
+        if (Database::execute($sql, $data)) {
+            return (int)Database::getInstance()->lastInsertId();
         }
-        return false;
+        return null;
     }
-    public function annuler(int $idConge, int $idEmploye): bool {
-        $c = $this->getByIdAndEmploye($idConge, $idEmploye);
-        if (!$c || $c['statut'] !== 'en_attente') return false;
-        return Database::execute("DELETE FROM conge WHERE id_conge = :id AND id_employe = :id_employe", ['id' => $idConge, 'id_employe' => $idEmploye]) !== false;
+    
+    public function cancel(int $idConge, int $idEmploye): bool {
+        $sql = "UPDATE conge SET statut = 'annule' WHERE id_conge = :id_conge AND id_employe = :id_employe AND statut = 'en_attente'";
+        return Database::execute($sql, ['id_conge' => $idConge, 'id_employe' => $idEmploye]) !== false;
+    }
+    
+    public function countByStatut(int $idEmploye, string $statut): int {
+        $sql = "SELECT COUNT(*) as count FROM conge WHERE id_employe = :id_employe AND statut = :statut";
+        $result = Database::fetchOne($sql, ['id_employe' => $idEmploye, 'statut' => $statut]);
+        return (int)($result['count'] ?? 0);
+    }
+    
+    public function getSoldeConges(int $idEmploye): int {
+        $sql = "SELECT solde_conges FROM employe WHERE id_employe = :id_employe";
+        $result = Database::fetchOne($sql, ['id_employe' => $idEmploye]);
+        return (int)($result['solde_conges'] ?? 0);
     }
 }
+?>

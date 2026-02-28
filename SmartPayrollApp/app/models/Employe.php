@@ -264,7 +264,61 @@ class Employe {
             error_log("Employe::authenticate() - Erreur : " . $e->getMessage());
             return false;
         }
+        
     }
+     public function updateProfil(int $idEmploye, array $data): bool {
+    $fields = [];
+    foreach ($data as $key => $value) {
+        if ($value !== null && $value !== '') {
+            $fields[] = "$key = :$key";
+        }
+    }
+    
+    if (empty($fields)) {
+        return false;
+    }
+    
+    $sql = "UPDATE employe SET " . implode(', ', $fields) . " WHERE id_employe = :id_employe";
+    $data['id_employe'] = $idEmploye;
+    
+    return Database::execute($sql, $data) !== false;
 }
+    // ... autres méthodes ...
+    
+    /**
+     * Obtenir les bulletins D'UN SEUL employé (confidentialité)
+     */
+    public function getBulletinsByEmploye(int $idEmploye, int $mois = null, int $annee = null): array {
+        $sql = "SELECT b.*, mp.libelle AS mode_paiement
+                FROM bulletin b
+                LEFT JOIN mode_paiement mp ON b.id_mode_paiement = mp.id_mode
+                WHERE b.id_employe = :id_employe";
+        
+        $params = ['id_employe' => $idEmploye];
+        
+        if ($mois && $annee) {
+            $sql .= " AND b.mois = :mois AND b.annee = :annee";
+            $params['mois'] = $mois;
+            $params['annee'] = $annee;
+        }
+        
+        $sql .= " ORDER BY b.annee DESC, b.mois DESC";
+        
+        return Database::query($sql, $params);
+    }
+    
+    /**
+     * Obtenir les congés D'UN SEUL employé (confidentialité)
+     */
+    public function getCongesByEmploye(int $idEmploye): array {
+        $sql = "SELECT * FROM conge 
+                WHERE id_employe = :id_employe 
+                ORDER BY date_demande DESC";
+        return Database::query($sql, ['id_employe' => $idEmploye]);
+    }
+    
+}
+
+
 
 ?>

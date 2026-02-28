@@ -11,13 +11,14 @@ $baseUrl = $protocol . '://' . $host . $projectPath;
 
 $error = $_GET['error'] ?? null;
 $success = $_GET['success'] ?? null;
+$soldeConges = $soldeConges ?? 15;
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Profil | SmartPayroll - ISMK</title>
+    <title>Demander un Congé | SmartPayroll - ISMK</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -61,54 +62,46 @@ $success = $_GET['success'] ?? null;
         .main-content { grid-column:2; display:flex; flex-direction:column; min-height:100vh; }
         .main-header { background:white; box-shadow:var(--shadow-sm); padding:var(--space-4) var(--space-8); display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:90; }
         .header-title h1 { font-size:var(--text-3xl); font-weight:800; color:var(--neutral-900); display:flex; align-items:center; gap:var(--space-3); }
-        .header-title h1 i { color:var(--ismk-green); font-size:2.25rem; }
+        .header-title h1 i { color:var(--ismk-orange); font-size:2.25rem; }
         .header-actions { display:flex; align-items:center; gap:var(--space-5); }
         .user-menu { display:flex; align-items:center; gap:var(--space-3); padding:var(--space-2) var(--space-4); border-radius:var(--radius-lg); transition:all 0.2s; cursor:pointer; }
         .user-menu:hover { background:var(--ismk-blue-xlight); }
         .user-avatar { width:48px; height:48px; background:var(--ismk-blue-xlight); color:var(--ismk-blue); border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:20px; border:2px solid white; box-shadow:var(--shadow-sm); }
         .user-info { display:flex; flex-direction:column; min-width:130px; }
         .user-name { font-size:var(--text-lg); font-weight:700; color:var(--neutral-900); }
-        .user-role { font-size:var(--text-sm); color:var(--ismk-green); font-weight:600; display:flex; align-items:center; gap:var(--space-1); }
+        .user-role { font-size:var(--text-sm); color:var(--ismk-orange); font-weight:600; display:flex; align-items:center; gap:var(--space-1); }
         .btn-logout { background:var(--ismk-red); color:white; border:none; padding:var(--space-3) var(--space-5); border-radius:var(--radius-lg); font-weight:600; font-size:var(--text-base); display:flex; align-items:center; gap:var(--space-2); transition:all 0.2s; box-shadow:var(--shadow-sm); }
         .btn-logout:hover { background:#dc2626; transform:translateY(-1px); box-shadow:var(--shadow-md); }
-        .page-container { padding:var(--space-8) var(--space-8) var(--space-12); max-width:1200px; margin:0 auto; width:100%; }
+        .page-container { padding:var(--space-8) var(--space-8) var(--space-12); max-width:900px; margin:0 auto; width:100%; }
         .system-message { padding:var(--space-5) var(--space-6); border-radius:var(--radius-xl); margin-bottom:var(--space-8); display:flex; align-items:flex-start; gap:var(--space-4); font-size:var(--text-lg); font-weight:500; animation:fadeIn 0.35s ease-out; border:1px solid transparent; }
         @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
         .message-error { background:#fef2f2; color:#b91c1c; border-color:#fecaca; }
         .message-success { background:#ecfdf5; color:#065f46; border-color:#bbf7d0; }
         .message-icon { font-size:1.75rem; min-width:28px; margin-top:2px; }
-        .profile-section { background:white; border-radius:var(--radius-xl); box-shadow:var(--shadow-lg); padding:var(--space-8); margin-bottom:var(--space-8); }
+        .form-section { background:white; border-radius:var(--radius-xl); box-shadow:var(--shadow-lg); padding:var(--space-8); margin-bottom:var(--space-8); }
         .section-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:var(--space-6); padding-bottom:var(--space-4); border-bottom:2px solid var(--neutral-200); }
         .section-title { font-size:var(--text-2xl); font-weight:800; color:var(--neutral-900); display:flex; align-items:center; gap:var(--space-3); }
-        .section-title i { color:var(--ismk-green); font-size:1.875rem; }
+        .section-title i { color:var(--ismk-orange); font-size:1.875rem; }
         .form-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:var(--space-6); }
         .form-group { margin-bottom:var(--space-4); }
         .form-group label { display:block; margin-bottom:var(--space-2); font-size:var(--text-sm); font-weight:600; color:var(--neutral-700); }
         .form-control { width:100%; padding:var(--space-3) var(--space-4); border:2px solid var(--neutral-300); border-radius:var(--radius-md); font-size:var(--text-base); font-family:'Inter',sans-serif; transition:all 0.2s; }
-        .form-control:focus { outline:none; border-color:var(--ismk-green); box-shadow:0 0 0 3px rgba(16,185,129,0.1); }
+        .form-control:focus { outline:none; border-color:var(--ismk-orange); box-shadow:0 0 0 3px rgba(245, 158, 11, 0.1); }
+        .form-control[type="date"] { font-family:'Inter',sans-serif; }
         .btn { padding:var(--space-3) var(--space-5); border-radius:var(--radius-md); font-weight:600; cursor:pointer; transition:all 0.2s; border:none; display:inline-flex; align-items:center; gap:var(--space-2); font-family:'Inter',sans-serif; font-size:var(--text-base); }
-        .btn-primary { background:var(--ismk-green); color:white; }
-        .btn-primary:hover { background:#065f46; transform:translateY(-2px); box-shadow:0 4px 12px rgba(16,185,129,0.3); }
-        .btn-secondary { background:white; color:var(--ismk-green); border:2px solid var(--ismk-green); }
-        .btn-secondary:hover { background:var(--ismk-green); color:white; }
-        .btn-orange { background:var(--ismk-orange); color:white; }
-        .btn-orange:hover { background:#d97706; transform:translateY(-2px); box-shadow:0 4px 12px rgba(245,158,11,0.3); }
-        .btn-red { background:var(--ismk-red); color:white; }
-        .btn-red:hover { background:#dc2626; transform:translateY(-2px); box-shadow:0 4px 12px rgba(239,68,68,0.3); }
-        .info-card { background:var(--neutral-50); border-left:4px solid var(--ismk-green); padding:var(--space-5); border-radius:var(--radius-md); margin-bottom:var(--space-4); }
-        .info-card h4 { font-size:var(--text-lg); font-weight:700; color:var(--neutral-900); margin-bottom:var(--space-2); }
-        .info-card p { font-size:var(--text-base); color:var(--neutral-700); line-height:1.6; }
-        .security-section { background:linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius:var(--radius-xl); padding:var(--space-6); margin-top:var(--space-6); border:2px solid var(--ismk-orange); }
-        .security-section h3 { font-size:var(--text-xl); font-weight:800; color:var(--neutral-900); margin-bottom:var(--space-4); display:flex; align-items:center; gap:var(--space-2); }
-        .security-section h3 i { color:var(--ismk-orange); }
-        .security-section p { font-size:var(--text-sm); color:var(--neutral-800); margin-bottom:var(--space-4); line-height:1.6; }
+        .btn-primary { background:var(--ismk-orange); color:white; }
+        .btn-primary:hover { background:#d97706; transform:translateY(-2px); box-shadow:0 4px 12px rgba(245, 158, 11, 0.3); }
+        .btn-secondary { background:white; color:var(--ismk-orange); border:2px solid var(--ismk-orange); }
+        .btn-secondary:hover { background:var(--ismk-orange); color:white; }
+        .info-box { background:#fffbeb; border-left:4px solid var(--ismk-orange); padding:var(--space-5); border-radius:var(--radius-md); margin-bottom:var(--space-6); }
+        .info-box h4 { font-size:var(--text-lg); font-weight:700; color:var(--neutral-900); margin-bottom:var(--space-2); display:flex; align-items:center; gap:var(--space-2); }
+        .info-box h4 i { color:var(--ismk-orange); }
+        .info-box p { font-size:var(--text-base); color:var(--neutral-700); line-height:1.6; }
         .main-footer { text-align:center; padding:var(--space-10) var(--space-8) var(--space-6); color:var(--neutral-600); font-size:var(--text-base); border-top:1px solid var(--neutral-200); margin-top:var(--space-8); background:white; border-radius:var(--radius-xl); box-shadow:var(--shadow); }
         .footer-line { display:flex; align-items:center; justify-content:center; gap:var(--space-2); margin-bottom:var(--space-3); }
-        .footer-highlight { color:var(--ismk-green); font-weight:700; }
-        .footer-subline { font-size:var(--text-sm); color:var(--neutral-500); display:flex; align-items:center; justify-content:center; gap:var(--space-2); margin-top:var(--space-2); }
+        .footer-highlight { color:var(--ismk-orange); font-weight:700; }
         @media (max-width:992px) { .dashboard-layout { grid-template-columns:1fr; } .sidebar { width:100%; height:auto; max-height:85vh; position:relative; } .main-content { grid-column:1; } .user-info { display:none; } }
         @media (max-width:768px) { .page-container { padding:var(--space-6) var(--space-4) var(--space-10); } .form-grid { grid-template-columns:1fr; } .btn { width:100%; justify-content:center; } }
-        @media (max-width:480px) { .sidebar-logo-badge { width:56px; height:56px; font-size:24px; } .sidebar-user-avatar { width:48px; height:48px; font-size:20px; } .sidebar-menu-item { padding:var(--space-3) var(--space-3); font-size:var(--text-sm); } .btn-logout { width:100%; justify-content:center; } }
     </style>
 </head>
 <body>
@@ -148,7 +141,7 @@ $success = $_GET['success'] ?? null;
                         <i class="fas fa-file-invoice"></i>
                         <span>Mes Bulletins</span>
                     </a>
-                    <a href="<?= $baseUrl ?>/app/controllers/EmployeController.php?action=monProfil" class="sidebar-menu-item active">
+                    <a href="<?= $baseUrl ?>/app/controllers/EmployeController.php?action=monProfil" class="sidebar-menu-item">
                         <i class="fas fa-user"></i>
                         <span>Mon Profil</span>
                     </a>
@@ -160,7 +153,7 @@ $success = $_GET['success'] ?? null;
                         <i class="fas fa-umbrella-beach"></i>
                         <span>Mes Congés</span>
                     </a>
-                    <a href="<?= $baseUrl ?>/app/controllers/EmployeController.php?action=demanderConge" class="sidebar-menu-item">
+                    <a href="<?= $baseUrl ?>/app/controllers/EmployeController.php?action=demanderConge" class="sidebar-menu-item active">
                         <i class="fas fa-plus-circle"></i>
                         <span>Demande de Congé</span>
                     </a>
@@ -181,8 +174,8 @@ $success = $_GET['success'] ?? null;
             <!-- Header -->
             <header class="main-header">
                 <div class="header-title">
-                    <i class="fas fa-user-circle"></i>
-                    <h1>Mon Profil Personnel</h1>
+                    <i class="fas fa-plus-circle"></i>
+                    <h1>Demander un Congé</h1>
                 </div>
                 <div class="header-actions">
                     <div class="user-menu">
@@ -210,12 +203,9 @@ $success = $_GET['success'] ?? null;
                             <?php
                             $messages = [
                                 'champs_vides' => 'Veuillez remplir tous les champs obligatoires.',
-                                'email_existe' => 'Cet email est déjà utilisé par un autre employé.',
-                                'mot_de_passe_incorrect' => 'Mot de passe actuel incorrect.',
-                                'ancien_mdp_incorrect' => 'Ancien mot de passe incorrect.',
-                                'mdp_non_conforme' => 'Les nouveaux mots de passe ne correspondent pas.',
-                                'mdp_trop_court' => 'Le mot de passe doit contenir au moins 8 caractères.',
-                                'erreur_modification' => 'Erreur lors de la modification.'
+                                'date_invalide' => 'La date de fin doit être postérieure à la date de début.',
+                                'solde_insuffisant' => 'Solde de congés insuffisant pour cette demande.',
+                                'erreur_creation' => 'Erreur lors de la création de la demande.'
                             ];
                             echo htmlspecialchars($messages[$error] ?? 'Une erreur est survenue.');
                             ?>
@@ -227,154 +217,73 @@ $success = $_GET['success'] ?? null;
                     <div class="system-message message-success">
                         <i class="fas fa-check-circle message-icon"></i>
                         <div>
-                            <?php
-                            $messages = [
-                                'profil_modifie' => 'Profil mis à jour avec succès.',
-                                'email_modifie' => 'Email modifié avec succès.',
-                                'mdp_modifie' => 'Mot de passe modifié avec succès.'
-                            ];
-                            echo htmlspecialchars($messages[$success] ?? 'Opération réussie.');
-                            ?>
+                            <?= htmlspecialchars($success === 'conge_demande' ? 'Demande de congé soumise avec succès.' : 'Opération réussie.'); ?>
                         </div>
                     </div>
                 <?php endif; ?>
 
-                <!-- Informations Personnelles -->
-                <section class="profile-section">
-                    <div class="section-header">
-                        <h2 class="section-title">
-                            <i class="fas fa-id-card"></i>
-                            Informations Personnelles
-                        </h2>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h4><i class="fas fa-user"></i> Identité</h4>
-                        <p><strong>Nom :</strong> <?= htmlspecialchars($_SESSION['user_nom'] ?? 'Non défini') ?></p>
-                        <p><strong>Prénom :</strong> <?= htmlspecialchars($_SESSION['user_prenom'] ?? 'Non défini') ?></p>
-                        <p><strong>Matricule :</strong> <?= htmlspecialchars($_SESSION['user_matricule'] ?? 'Non défini') ?></p>
-                        <p><strong>Email :</strong> <?= htmlspecialchars($_SESSION['user_email'] ?? 'Non défini') ?></p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h4><i class="fas fa-briefcase"></i> Poste et Département</h4>
-                        <p><strong>Poste :</strong> <?= htmlspecialchars($_SESSION['user_poste'] ?? 'Non défini') ?></p>
-                        <p><strong>Département :</strong> <?= htmlspecialchars($_SESSION['user_departement'] ?? 'Non défini') ?></p>
-                        <p><strong>Type de contrat :</strong> <?= ucfirst($_SESSION['user_type_contrat'] ?? 'CDI') ?></p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h4><i class="fas fa-calendar-alt"></i> Informations Professionnelles</h4>
-                        <p><strong>Date d'embauche :</strong> <?= date('d/m/Y', strtotime($_SESSION['user_date_embauche'] ?? '2022-01-01')) ?></p>
-                        <p><strong>Solde de congés :</strong> <?= $_SESSION['user_solde_conges'] ?? 0 ?> jours</p>
-                        <p><strong>Rôle :</strong> <?= ucfirst($_SESSION['user_role'] ?? 'employe') ?></p>
-                    </div>
+                <!-- Informations sur le Solde -->
+                <section class="info-box">
+                    <h4><i class="fas fa-info-circle"></i> Votre Solde de Congés</h4>
+                    <p>Vous disposez actuellement de <strong><?= $soldeConges ?> jours</strong> de congés restants pour cette année. Planifiez vos congés en conséquence.</p>
                 </section>
 
-                <!-- Modifier Mes Informations -->
-                <section class="profile-section">
+                <!-- Formulaire de Demande -->
+                <section class="form-section">
                     <div class="section-header">
                         <h2 class="section-title">
                             <i class="fas fa-edit"></i>
-                            Modifier Mes Informations
+                            Formulaire de Demande
                         </h2>
                     </div>
                     
-                    <form method="POST" action="<?= $baseUrl ?>/app/controllers/EmployeController.php?action=modifierProfil" class="form-grid">
+                    <form method="POST" action="<?= $baseUrl ?>/app/controllers/EmployeController.php?action=soumettreDemandeConge" class="form-grid">
                         <div class="form-group">
-                            <label for="telephone"><i class="fas fa-phone"></i> Téléphone</label>
-                            <input type="tel" id="telephone" name="telephone" class="form-control" 
-                                   value="<?= htmlspecialchars($_SESSION['user_telephone'] ?? '') ?>" 
-                                   placeholder="+261 34 XX XX XX">
+                            <label for="date_debut"><i class="fas fa-calendar-alt"></i> Date de Début *</label>
+                            <input type="date" id="date_debut" name="date_debut" class="form-control" 
+                                   value="<?= date('Y-m-d', strtotime('+7 days')) ?>" required
+                                   min="<?= date('Y-m-d', strtotime('+7 days')) ?>">
+                            <small style="color:var(--neutral-600); font-size:var(--text-sm); margin-top:var(--space-1); display:block;">
+                                Au moins 7 jours avant la date de début
+                            </small>
                         </div>
                         
                         <div class="form-group">
-                            <label for="adresse"><i class="fas fa-map-marker-alt"></i> Adresse</label>
-                            <input type="text" id="adresse" name="adresse" class="form-control" 
-                                   value="<?= htmlspecialchars($_SESSION['user_adresse'] ?? '') ?>" 
-                                   placeholder="Votre adresse complète">
+                            <label for="date_fin"><i class="fas fa-calendar-alt"></i> Date de Fin *</label>
+                            <input type="date" id="date_fin" name="date_fin" class="form-control" 
+                                   value="<?= date('Y-m-d', strtotime('+14 days')) ?>" required
+                                   min="<?= date('Y-m-d', strtotime('+8 days')) ?>">
                         </div>
                         
-                        <div style="grid-column: span 2;">
+                        <div class="form-group">
+                            <label for="type_conge"><i class="fas fa-umbrella-beach"></i> Type de Congé *</label>
+                            <select id="type_conge" name="type_conge" class="form-control" required>
+                                <option value="annuel">Congé Annuel</option>
+                                <option value="maladie">Congé Maladie</option>
+                                <option value="maternite">Congé Maternité</option>
+                                <option value="sans_solde">Congé Sans Solde</option>
+                                <option value="exceptionnel">Congé Exceptionnel</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group" style="grid-column: span 2;">
+                            <label for="motif"><i class="fas fa-sticky-note"></i> Motif de la Demande *</label>
+                            <textarea id="motif" name="motif" class="form-control" rows="4" 
+                                      placeholder="Décrivez brièvement le motif de votre demande de congé..." required></textarea>
+                            <small style="color:var(--neutral-600); font-size:var(--text-sm); margin-top:var(--space-1); display:block;">
+                                Soyez précis dans votre explication pour faciliter le traitement de votre demande
+                            </small>
+                        </div>
+                        
+                        <div style="grid-column: span 2; display:flex; gap:var(--space-3); justify-content:flex-end; flex-wrap:wrap;">
                             <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-save"></i> Enregistrer les modifications
+                                <i class="fas fa-paper-plane"></i> Soumettre la Demande
                             </button>
-                            <button type="reset" class="btn btn-secondary">
-                                <i class="fas fa-undo"></i> Annuler
-                            </button>
+                            <a href="<?= $baseUrl ?>/app/controllers/EmployeController.php?action=mesConges" class="btn btn-secondary">
+                                <i class="fas fa-times"></i> Annuler
+                            </a>
                         </div>
                     </form>
-                </section>
-
-                <!-- Sécurité et Compte -->
-                <section class="profile-section">
-                    <div class="section-header">
-                        <h2 class="section-title">
-                            <i class="fas fa-shield-alt"></i>
-                            Sécurité et Compte
-                        </h2>
-                    </div>
-                    
-                    <!-- Modifier l'Email -->
-                    <div class="security-section">
-                        <h3><i class="fas fa-envelope"></i> Modifier mon Email</h3>
-                        <p>Votre email est utilisé pour vous identifier sur la plateforme. Pour des raisons de sécurité, vous devrez confirmer votre mot de passe actuel pour modifier votre email.</p>
-                        
-                        <form method="POST" action="<?= $baseUrl ?>/app/controllers/EmployeController.php?action=modifierEmail" class="form-grid" style="margin-top: var(--space-4);">
-                            <div class="form-group">
-                                <label for="nouvel_email">Nouvel Email *</label>
-                                <input type="email" id="nouvel_email" name="nouvel_email" class="form-control" 
-                                       placeholder="votre.nouvel@email.com" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="mot_de_passe_email">Mot de Passe Actuel *</label>
-                                <input type="password" id="mot_de_passe_email" name="mot_de_passe" class="form-control" 
-                                       placeholder="Confirmez votre mot de passe" required>
-                            </div>
-                            
-                            <div style="grid-column: span 2;">
-                                <button type="submit" class="btn btn-orange">
-                                    <i class="fas fa-sync-alt"></i> Modifier mon Email
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    
-                    <!-- Modifier le Mot de Passe -->
-                    <div class="security-section" style="background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%); border-color: var(--ismk-red); margin-top: var(--space-6);">
-                        <h3><i class="fas fa-key"></i> Modifier mon Mot de Passe</h3>
-                        <p>Pour des raisons de sécurité, votre nouveau mot de passe doit contenir au moins 8 caractères et être différent de l'ancien.</p>
-                        
-                        <form method="POST" action="<?= $baseUrl ?>/app/controllers/EmployeController.php?action=modifierMotDePasse" class="form-grid" style="margin-top: var(--space-4);">
-                            <div class="form-group">
-                                <label for="ancien_mdp">Ancien Mot de Passe *</label>
-                                <input type="password" id="ancien_mdp" name="ancien_mdp" class="form-control" 
-                                       placeholder="Votre mot de passe actuel" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="nouveau_mdp">Nouveau Mot de Passe *</label>
-                                <input type="password" id="nouveau_mdp" name="nouveau_mdp" class="form-control" 
-                                       placeholder="Au moins 8 caractères" required minlength="8">
-                                <small style="color:var(--neutral-600); font-size:var(--text-sm); margin-top:var(--space-1); display:block;">
-                                    Doit contenir au moins 8 caractères
-                                </small>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="confirmation_mdp">Confirmer le Nouveau Mot de Passe *</label>
-                                <input type="password" id="confirmation_mdp" name="confirmation_mdp" class="form-control" 
-                                       placeholder="Confirmez votre nouveau mot de passe" required minlength="8">
-                            </div>
-                            
-                            <div style="grid-column: span 2;">
-                                <button type="submit" class="btn btn-red">
-                                    <i class="fas fa-lock"></i> Modifier mon Mot de Passe
-                                </button>
-                            </div>
-                        </form>
-                    </div>
                 </section>
 
                 <!-- Footer -->
@@ -385,13 +294,34 @@ $success = $_GET['success'] ?? null;
                         <span class="footer-highlight">Institut Supérieur Mony Keng (ISMK)</span>
                         © <?= date('Y') ?>
                     </div>
-                    <div class="footer-subline">
-                        <i class="fas fa-lock"></i>
-                        <span>Vos données sont strictement confidentielles et personnelles</span>
-                    </div>
                 </footer>
             </div>
         </main>
     </div>
+
+    <script>
+        // Calcul automatique du nombre de jours
+        document.addEventListener('DOMContentLoaded', function() {
+            const dateDebut = document.getElementById('date_debut');
+            const dateFin = document.getElementById('date_fin');
+            
+            function calculerJours() {
+                if (dateDebut.value && dateFin.value) {
+                    const debut = new Date(dateDebut.value);
+                    const fin = new Date(dateFin.value);
+                    
+                    if (fin >= debut) {
+                        const diffTime = Math.abs(fin - debut);
+                        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+                        
+                        console.log(`Nombre de jours: ${diffDays}`);
+                    }
+                }
+            }
+            
+            dateDebut.addEventListener('change', calculerJours);
+            dateFin.addEventListener('change', calculerJours);
+        });
+    </script>
 </body>
 </html>
